@@ -97,18 +97,28 @@ public class PlayerController : MonoBehaviour
         //How fast is going "right"
         return Vector2.Dot(transform.right, rb.velocity);
     }
+    public float GetVelocityMagnitude()
+    {
+        return rb.velocity.magnitude;
+    }
 
-    public bool IsTireScreeching(out float latVel)
+    public bool IsTireScreeching(out float latVel, out bool isBraking)
     {
         latVel = GetLateralVelocity();
-        bool isTrailing = false;
+        isBraking = false;
 
-        if((accelInput < trailTurnTreshold && velocityUp > -trailTurnTreshold) || (accelInput > -trailTurnTreshold && velocityUp < trailTurnTreshold))
-            isTrailing = true;
+        if ((accelInput < 0 && velocityUp > 0))
+        {
+            isBraking = true;
+            return true;
+        }
         if (Mathf.Abs(GetLateralVelocity()) > trailTurnTreshold)
-            isTrailing = true;
+        {
+            isBraking = true;
+            return true;
+        }
 
-        return isTrailing;
+        return false;
     }
 
     #endregion
