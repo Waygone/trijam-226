@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    #region VARIABLES
     [Header("Movement")]
     public float acceleration = 8.0f;
     public float maxSpeed = 60.0f;
@@ -12,6 +14,9 @@ public class PlayerController : MonoBehaviour
     //Don't put above 1
     public float drift = 0.95f;
     public float dragForce = 3.0f;
+
+    [Header("Trails")]
+    public float trailTurnTreshold = 0.8f;
 
 
 
@@ -23,7 +28,9 @@ public class PlayerController : MonoBehaviour
     float velocityUp = 0;
     
     Rigidbody2D rb;
+    #endregion 
 
+    #region CALLBACK
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,7 +42,10 @@ public class PlayerController : MonoBehaviour
         ApplyFriction();
         SteeringForce();
     }
+    #endregion
 
+
+    #region MOVEMENT
     private void AccelerationForce()
     {
         //Calculate forward with direction of velocity
@@ -71,13 +81,6 @@ public class PlayerController : MonoBehaviour
 
         rb.MoveRotation(rotationAngle);
     }
-
-    public void SetInputVector(Vector2 inputVector)
-    {
-        turningInput = inputVector.x;
-        accelInput = inputVector.y;
-    }
-
     public void ApplyFriction()
     {
         Vector2 forwardVel = transform.up * Vector2.Dot(rb.velocity, transform.up);
@@ -85,4 +88,39 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = (forwardVel + rightVel) * drift;
     }
+    #endregion
+
+    #region HANDLERS
+
+    public float GetLateralVelocity()
+    {
+        //How fast is going "right"
+        return Vector2.Dot(transform.right, rb.velocity);
+    }
+
+    public bool IsTireScreeching(out float latVel)
+    {
+        latVel = GetLateralVelocity();
+        bool isTrailing = false;
+
+        if((accelInput < trailTurnTreshold && velocityUp > -trailTurnTreshold) || (accelInput > -trailTurnTreshold && velocityUp < trailTurnTreshold))
+            isTrailing = true;
+        if (Mathf.Abs(GetLateralVelocity()) > trailTurnTreshold)
+            isTrailing = true;
+
+        return isTrailing;
+    }
+
+    #endregion
+
+
+    #region INPUT
+
+    public void SetInputVector(Vector2 inputVector)
+    {
+        turningInput = inputVector.x;
+        accelInput = inputVector.y;
+    }
+
+    #endregion
 }
