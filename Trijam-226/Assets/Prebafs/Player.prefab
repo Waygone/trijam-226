@@ -203,7 +203,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 136709981
-  m_SortingLayer: 1
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -258,7 +258,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7708188798378212290, guid: c3b2cffb9e4524f4f9cfc66493eadbfc, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d7959b707d294d04eb319e9745727c6d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: edbc486ea6a1e3e44a145bc9cccc3673, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -417,7 +417,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1795550051
-  m_SortingLayer: 5
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Time: 30
   m_PreviewTimeScale: 1
@@ -1603,25 +1603,25 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.020175934
-          value: 0.48648834
-          inSlope: 0
-          outSlope: 0
+          time: 0
+          value: 0.38512897
+          inSlope: -1.1835926
+          outSlope: -1.1835926
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0
+          outWeight: 0.83231056
         - serializedVersion: 3
-          time: 0.12132834
-          value: 0.98527944
-          inSlope: -0.24265662
-          outSlope: -0.24265662
+          time: 0.117963776
+          value: 1
+          inSlope: 0.21822645
+          outSlope: 0.21822645
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 1
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.9428406
+          time: 1
           value: 0.5878496
           inSlope: -1.6099131
           outSlope: -1.6099131
@@ -5655,7 +5655,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1795550051
-  m_SortingLayer: 5
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Time: 30
   m_PreviewTimeScale: 1
@@ -6730,25 +6730,25 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.020175934
-          value: 0.48648834
-          inSlope: 0
-          outSlope: 0
+          time: 0
+          value: 0.38512897
+          inSlope: -1.1835926
+          outSlope: -1.1835926
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0
+          outWeight: 0.83231056
         - serializedVersion: 3
-          time: 0.12132834
-          value: 0.98527944
-          inSlope: -0.24265662
-          outSlope: -0.24265662
+          time: 0.117963776
+          value: 1
+          inSlope: 0.21822645
+          outSlope: 0.21822645
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 1
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.9428406
+          time: 1
           value: 0.5878496
           inSlope: -1.6099131
           outSlope: -1.6099131
@@ -10645,9 +10645,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 40
   maxSpeed: 60
-  turnSpeed: 5
-  drift: 0.85
-  dragForce: 3
+  turnSpeed: 10
+  drift: 0.8
+  dragForce: 2
   trailTurnTreshold: 0.8
 --- !u!50 &8004349784719670477
 Rigidbody2D:

@@ -74,10 +74,10 @@ public class PlayerController : MonoBehaviour
     private void SteeringForce()
     {
         //Don't turn if it isn't accelerating
-        float minSpeedBeforeTurning = rb.velocity.magnitude / 8;
+        float minSpeedBeforeTurning = rb.velocity.magnitude / 4;
         minSpeedBeforeTurning = Mathf.Clamp01(minSpeedBeforeTurning);
 
-        rotationAngle -= turningInput * (turnSpeed * 10 /acceleration) * minSpeedBeforeTurning;
+        rotationAngle -= turningInput * minSpeedBeforeTurning * turnSpeed;// * 2/acceleration;
 
         rb.MoveRotation(rotationAngle);
     }
