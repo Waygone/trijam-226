@@ -41,3 +41,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 136709981
+    locked: 0
+  - name: Coins
+    uniqueID: 3603227489
+    locked: 0
+  - name: Particles
+    uniqueID: 3113575429
+    locked: 0
+  - name: Enemy
+    uniqueID: 3070676157
+    locked: 0
+  - name: Trails
+    uniqueID: 2499417245
+    locked: 0
+  - name: BG
+    uniqueID: 3509727873
+    locked: 0
+  - name: New Layer 3
+    uniqueID: 4143210853
+    locked: 0
