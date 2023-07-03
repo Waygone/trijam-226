@@ -22,11 +22,8 @@ public class PlayerInputHandler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (controller.coins > 5)
-            {
-                controller.SetPositionToStart();
-                controller.AddCoins(-5);
-            }
+            controller.SetPositionToStart();
+            controller.AddCoins(-5);
         }
     }
 }
