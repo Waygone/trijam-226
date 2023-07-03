@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -19,6 +20,11 @@ public class PlayerController : MonoBehaviour
     public float trailTurnTreshold = 0.8f;
 
 
+    Vector2 initialPos;
+
+    public TextMeshProUGUI coinsText;
+    [NonSerialized] public float coins = 0;
+
 
     float accelInput = 0;
     float turningInput = 0;
@@ -34,6 +40,12 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        coinsText.text = "x" + coins.ToString();
+        initialPos = transform.position;
     }
 
     private void FixedUpdate()
@@ -74,10 +86,10 @@ public class PlayerController : MonoBehaviour
     private void SteeringForce()
     {
         //Don't turn if it isn't accelerating
-        float minSpeedBeforeTurning = rb.velocity.magnitude / 4;
+        float minSpeedBeforeTurning = rb.velocity.magnitude / 2f;
         minSpeedBeforeTurning = Mathf.Clamp01(minSpeedBeforeTurning);
 
-        rotationAngle -= turningInput * minSpeedBeforeTurning * turnSpeed;// * 2/acceleration;
+        rotationAngle -= turningInput * turnSpeed * minSpeedBeforeTurning ;// * 2/acceleration;
 
         rb.MoveRotation(rotationAngle);
     }
@@ -121,6 +133,15 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    public void AddCoins(float c)
+    {
+        coins += c;
+        coinsText.text = "x" + coins.ToString();
+        PlayerPrefs.SetFloat("score", coins);
+        if(PlayerPrefs.GetFloat("highscore") < coins)
+            PlayerPrefs.SetFloat("highscore", coins);
+    }
+
     #endregion
 
 
@@ -130,6 +151,10 @@ public class PlayerController : MonoBehaviour
     {
         turningInput = inputVector.x;
         accelInput = inputVector.y;
+    }
+    public void SetPositionToStart()
+    {
+        transform.position = initialPos;
     }
 
     #endregion

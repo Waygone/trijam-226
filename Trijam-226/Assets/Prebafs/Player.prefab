@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2852373572026564526, guid: c3b2cffb9e4524f4f9cfc66493eadbfc, type: 2}
-  m_audioClip: {fileID: 8300000, guid: ff47a982b4863df40b55ad06b710d417, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a9ef1e9b575ca084f82a8d0e1a39cdf0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -154,7 +154,7 @@ Transform:
   m_GameObject: {fileID: 1056687525687680618}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1241827655540046502}
@@ -205,7 +205,7 @@ SpriteRenderer:
   m_SortingLayerID: 136709981
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 972005266, guid: 2b59358880af98d48988b91cb786883a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -536,7 +536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3337136840313673144}
-  - component: {fileID: 2895789064549179928}
+  - component: {fileID: 3793267556506724912}
   m_Layer: 3
   m_Name: Collider
   m_TagString: Untagged
@@ -559,8 +559,8 @@ Transform:
   m_Father: {fileID: 3695216638088970774}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2895789064549179928
-BoxCollider2D:
+--- !u!60 &3793267556506724912
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -601,9 +601,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.15789127, y: 0.35339737}
+      - {x: -0.2818976, y: -0.2623994}
+      - {x: 0.0061870217, y: -0.3578986}
+      - {x: 0.27200282, y: -0.26767564}
+      - {x: 0.1691184, y: 0.3466105}
+  m_UseDelaunayMesh: 0
 --- !u!1 &5523894280030454505
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5523894280030454505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0.3, y: -0.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -904,8 +909,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.9
-      minScalar: 0.5
+      scalar: 0.6
+      minScalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1289,7 +1294,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 0.5, y: 0.5, z: 0.5}
+    m_Scale: {x: 0.1, y: 0.1, z: 0.1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -5758,7 +5763,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7067232050408217525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -0.5, z: 0}
+  m_LocalPosition: {x: -0.32, y: -0.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6031,8 +6036,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.9
-      minScalar: 0.5
+      scalar: 0.6
+      minScalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6416,7 +6421,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 0.5, y: 0.5, z: 0.5}
+    m_Scale: {x: 0.1, y: 0.1, z: 0.1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -10594,6 +10599,7 @@ GameObject:
   - component: {fileID: 3170079371180163809}
   - component: {fileID: 8004349784719670477}
   - component: {fileID: 547792074314793323}
+  - component: {fileID: 1370208438713218012}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -10692,3 +10698,19 @@ MonoBehaviour:
   screechingAS: {fileID: 6727440313960140414}
   accelerationAS: {fileID: 1617207504142014270}
   hitAS: {fileID: 591842190470877413}
+--- !u!111 &1370208438713218012
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617236628209034534}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 54bf8b2e271420844b207ede514634db, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
