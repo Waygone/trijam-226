@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,8 +24,9 @@ public class PlayerController : MonoBehaviour
     Vector2 initialPos;
 
     public TextMeshProUGUI coinsText;
+    public TextMeshProUGUI timerText;
     [NonSerialized] public float coins = 0;
-
+    public float timeLeft = 60f;
 
     float accelInput = 0;
     float turningInput = 0;
@@ -46,6 +48,21 @@ public class PlayerController : MonoBehaviour
     {
         coinsText.text = "x" + coins.ToString();
         initialPos = transform.position;
+
+    }
+
+    private void Update()
+    {
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+            timerText.text = TimeSpan.FromSeconds(timeLeft).ToString("ss\\.ff");
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
+
     }
 
     private void FixedUpdate()
@@ -89,7 +106,7 @@ public class PlayerController : MonoBehaviour
         float minSpeedBeforeTurning = rb.velocity.magnitude / 2f;
         minSpeedBeforeTurning = Mathf.Clamp01(minSpeedBeforeTurning);
 
-        rotationAngle -= turningInput * turnSpeed * minSpeedBeforeTurning ;// * 2/acceleration;
+        rotationAngle -= turningInput * turnSpeed * minSpeedBeforeTurning * 10/acceleration;
 
         rb.MoveRotation(rotationAngle);
     }
@@ -137,9 +154,7 @@ public class PlayerController : MonoBehaviour
     {
         coins += c;
         coinsText.text = "x" + coins.ToString();
-        PlayerPrefs.SetFloat("score", coins);
-        if(PlayerPrefs.GetFloat("highscore") < coins)
-            PlayerPrefs.SetFloat("highscore", coins);
+        PlayerPrefs.SetFloat("Score", coins);
     }
 
     #endregion
