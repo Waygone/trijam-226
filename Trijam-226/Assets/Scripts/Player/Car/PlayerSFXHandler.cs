@@ -84,7 +84,7 @@ public class PlayerSFXHandler : MonoBehaviour
 
         float vol = relativeVelocity * 0.1f;
 
-        hitAS.pitch = Random.Range(0.9f,1.1f);
+        hitAS.pitch = Random.Range(0.7f,1.3f);
         hitAS.volume = vol;
 
         if (!hitAS.isPlaying)

@@ -19,5 +19,14 @@ public class PlayerInputHandler : MonoBehaviour
         inputVector.y = Input.GetAxis("Vertical");
 
         controller.SetInputVector(inputVector);
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (controller.coins > 5)
+            {
+                controller.SetPositionToStart();
+                controller.AddCoins(-5);
+            }
+        }
     }
 }
